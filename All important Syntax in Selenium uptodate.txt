@@ -1,0 +1,345 @@
+
+					All Syntax uptodate
+
+
+
+1.How to Launch a Browser
+
+	< System.setProperty("webdriver.chrome.driver","chromedriver.exe.path");
+  		 
+	< driver=new ChromeDriver();
+  		 
+	< driver.manage().window().maximize();
+------------------------------------------------------------------------------
+
+2.How to Maxmise window
+
+	< driver.manage().window().maximize();
+
+------------------------------------------------------------------------------
+
+3.How to get Application URL
+
+	driver.get("URL");
+
+-----------------------------------------------------------------------------------------------
+
+4.How to write a web application by using Locaters
+
+	
+	1.By ID
+
+	driver.findElement(By.id("--")).sendKeys("--");
+
+
+	2.By Name
+
+	driver.findElement(By.Name("--")).sendKeys("--");
+
+
+	3.By CssSelecor
+
+	driver.findElement(By.cssSelector("--")).sendKeys("--");
+	
+  
+	4.By LinkText
+
+	driver.findElement(By.linkText("--")).click();
+
+
+	5.By Partial Linktext
+
+	findElement(By.partialLinkText("Nationaliti")).click();
+	
+
+	6.By Class Name
+
+	findElement(By.className("button")).click();
+
+	7.By TagName
+
+	List<WebElement> links=  driver.findElements(By.tagName("a"));	
+
+		int links_count = links.size();
+
+		System.out.println("Number of hyperlinks "+links_count);
+
+---------------------------------------------------------------------------------------------------
+
+5.How to write an XPath
+
+	< ""//*[@id='txtUsername']"
+
+---------------------------------------------------------------------------------------------------
+
+6.Javascript Executor
+
+    1.scroll by Visible Element.	
+
+	< JavascriptExecutor js = (JavascriptExecutor)driver;
+		
+        <js.executeScript("arguments[0].scrollIntoView();", Element);
+
+    2.Sendkeys
+
+	< js.executeScript("arguments[0].setAttribute('value','admin123')", password);
+
+        < js.executeScript("arguments[0].click();", button);
+
+    3.Scroll by Pixel
+
+	< JavascriptExecutor js = (JavascriptExecutor) driver;
+
+	< js.executeScript("window.scrollBy(0,1000)");
+
+    4.Highlighting web Element Borders
+
+	< 
+
+	public  WebElement findElement(By by) throws Exception 
+		
+	{
+				
+	WebElement elem = driver.findElement(by);    	    
+		
+	 
+	if (driver instanceof JavascriptExecutor) 
+	{
+	((JavascriptExecutor)driver).executeScript("arguments[0].style.border='3px solid red'", elem);
+	 
+	}
+		
+		return elem;
+	}	
+        
+---------------------------------------------------------------------------------------------------
+
+
+7.Drop Down
+
+
+	< Select dropdown = new Select(driver.findElement(By.id("location_country")));
+
+	< dropdown.selectByVisibleText("India");
+			
+			(or)
+
+	< dropdown.selectByValue("IN");
+
+			(or)
+
+	< dropdown.selectByIndex("0");
+
+---------------------------------------------------------------------------------------------------
+
+8.DataProvider
+
+	1.By Object Array method
+
+		< @DataProvider(name = "--")
+
+
+		public Object[][] getData()
+		
+		{
+		 
+		Object[][] data = new Object[3][6];
+
+			
+			// 1st row
+
+			data[0][0] ="----";
+			
+			data[0][1] = "----"; 
+
+
+			// 2nd row
+			data[0][0] ="----";
+			
+			data[0][1] = "----";
+
+		return data;
+
+------------------------------------------------
+
+	2.By Data Driven Test
+
+		
+
+		@DataProvider(name = "TC01_Add_Job")
+
+
+		public static Object[][] Authentication1() throws Exception {
+			
+			ExcelApiTest4 eat = new ExcelApiTest4();
+
+			Object[][] testObjArray = eat.getTableArray("C://HTML Report//OrangeHRM6//TC03_Skills_Description.xlsx", "Sheet4");
+			
+			System.out.println(testObjArray.length);
+
+
+			return (testObjArray);
+		}
+
+
+
+---------------------------------------------------------------------------------------------------
+
+9.Emailable Reports
+
+
+		< Reporter.log("Pass- Click on Signin");
+
+---------------------------------------------------------------------------------------------------
+
+10.Customised Emailable Reports
+
+
+		< R1.TakeScreenShotAuto(driver,"Username Entered","Pass");
+
+---------------------------------------------------------------------------------------------------
+
+
+11.Extent Reports.
+
+	
+	
+		<   SimpleDateFormat sdfDate = new SimpleDateFormat("yyyy_MMM_dd_h_mm_ss_SSS_a");
+
+		 Date now = new Date();
+
+		 String strDate = sdfDate.format(now);
+		 
+		 TestName=TestScriptName+"_"+strDate+".html";
+
+		 TestScriptName=TestScriptName+"_"+strDate;
+
+		  String TestHtmlName="C:/HTML Report/test-output/ExtentReportScreenShots/"+ TestScriptName +"/"+TestName;
+		  
+		 ExtentHtmlReporter reporter=new ExtentHtmlReporter(TestHtmlName);
+
+		 
+		 System.out.println("Html Report path is : "+TestHtmlName);
+		 
+		 extent=new ExtentReports();
+
+		 extent.attachReporter(reporter);
+
+		 logger=extent.createTest(TestName);
+		 
+---------------------------------------------------------------------------------------------------		 
+12.Frames
+
+
+	1. Switch frame by Iframe Name:
+
+		< driver.switchTo().frame("iframe Name");
+
+		< driver.switchTo().defaultContent();
+
+
+	2. Switch frames by Web element Reference
+
+		
+		< driver.switchTo().frame(findElement(By.id("-----"))); where ("---" = web element id)
+
+		< driver.switchTo().defaultContent();
+
+	3. Swich frames by Index
+
+		< List<WebElement> frames = driver.findElements(By.tagName("iframe"));
+
+		< driver.switchTo().frame(frames.get(0));
+
+		< driver.switchTo().defaultContent();
+
+---------------------------------------------------------------------------------------------------		 
+13.Waits
+
+
+	1.Implicit Wait
+
+		<  driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+
+	2.Explicit Wait
+
+		< WebDriverWait wait=  new WebDriverWait(driver,120);
+
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.linkText("Logout"))) ;
+
+	3.fluient Wait:
+
+		 < Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+
+				       .withTimeout(120, TimeUnit.SECONDS)
+
+				       .pollingEvery(40, TimeUnit.SECONDS)
+
+				       .ignoring(NoSuchElementException.class);
+
+				   
+		 WebElement Logout1 = wait.until(new Function<WebDriver,WebElement>() {
+
+		public WebElement apply(WebDriver driver) {
+
+		 return driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/ul/li[2]/a"));
+
+		}
+					   
+		});
+	
+
+---------------------------------------------------------------------------------------------------		 
+
+14.Upload File
+
+
+
+		< WebElement button =findElement(By.xpath("//*[@id='jobTitle_jobSpec']"));
+
+  	  
+  	   		 Actions actions = new Actions(driver);
+
+	  		actions.moveToElement(button).click().build().perform();
+
+			Thread.sleep(5000);
+
+		
+
+		< 	StringSelection sel = new StringSelection(------);
+
+			Toolkit.getDefaultToolkit().getSystemClipboard().setContents(sel,null);
+			 
+			 System.out.println("selection" +sel);
+
+
+			 
+			 // Create object of Robot class
+
+			 	Robot robot = new Robot();
+			 	Thread.sleep(2000);
+			      
+			 
+			  // Press CTRL+V
+
+			 	robot.keyPress(KeyEvent.VK_CONTROL);
+
+			 	robot.keyPress(KeyEvent.VK_V);
+			 
+			 	robot.keyRelease(KeyEvent.VK_CONTROL);
+
+				robot.keyRelease(KeyEvent.VK_V);
+
+			 	Thread.sleep(2000);
+			        
+
+		       	  //  Press Enter 
+
+				 robot.keyPress(KeyEvent.VK_ENTER);
+
+				 robot.keyRelease(KeyEvent.VK_ENTER);
+			 
+			 	Thread.sleep(8000);
+
+
+---------------------------------------------------------------------------------------------------		 

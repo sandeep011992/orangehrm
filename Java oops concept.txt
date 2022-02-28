@@ -1,0 +1,171 @@
+
+1. How to Initilise object value
+
+	< we can initilise the object value by using Constructor in java.
+
+	There are two types of Constructors Available
+
+	1.Default Constructor.
+
+	2.Parameterized Constructor.
+
+    1.Default Constructor:-
+
+
+		< In this constructor we will not assign any values
+
+		< only default values will be assigned---String=Null,Int_0
+
+    2.Parameterized Constructor:-
+
+		< constructor which contain input parameter values
+
+		< By using "this" keyword we can assaign the values.
+
+		< & we can initilise object Values.
+
+-------------------------------------------------------------------------------------------------------
+	
+2.Explain about oops concept in java
+
+	< The main oops concepts i ava is
+
+	1.Abstraction
+
+	2.Encapsulation
+
+	3.Polymorphysm
+	
+	4.inheretance
+
+
+1.Abstraction:-  
+
+	> Hiding Background Details of particular object is known as Abstraction.
+	
+	> Abstraction is a process of hiding implementation Details from the user.
+
+	> Only functionality will be provided to user.
+
+  Abstraction can be achived in two ways in Java
+
+	1.Abstract Class
+
+	2.Interface.
+
+
+	1.Abstract Class
+
+		> In an Abstract class which contains abstract method those can be
+		 
+		  implmented in sub Class
+
+		> If it is an Abtract class we can achieve only partial abstraction.
+
+		> in Abstract class some part of implementation we can do in same class.
+
+		> Like that we can achieve partial Abstraction by using Abstract Class.
+
+
+	2.Interface:-
+
+		> we can Achieve 100% Abstraction by using Interface
+
+		> Because all methods will be fully implemented in the subclass by using 
+		
+		  implements keyword.
+
+		> Like that we can Achieve Abstraction in Java.
+
+	
+        -----------------------------------------------------------------------------------------------	
+
+
+2.Encapsulation:-
+
+		< if a class contains some private data member
+
+		< we can generate setters and getters
+
+		< and we can initilise the object value Securely.this process is known as Encapsulaton.
+
+
+       -------------------------------------------------------------------------------------------------------	
+
+3. Polymorpism:-
+
+		< Same method we can write in multiple ways in a same class is known as polymoroism
+
+		< there are two types of polymorphysm
+
+	1.Compile time Polymorphysm/Method overloading/static binding.
+
+	2. run time Polymorphysm/Method overriding/dynamic Binding.
+
+
+
+
+ 1.Method over Loading:-
+
+		< We can write same method name multiple times with different input arguments with in
+
+		  a same class is known as method over loading.
+
+		
+
+ 2.Method overriding:-
+
+
+
+		< a same method is present in Parent class and child class and child class object which
+
+		  is iver riding the parent class method during run time this concept is kown as
+		
+		  Method overriding.
+
+
+-------------------------------------------------------------------------------------------------------	
+
+		  
+3. Where you used this method overloading concept in your projects.
+
+
+	> Whenever you creating Search nationalities, Search Employee, Search jobs. there might be a 
+
+	  you have to write a same method multiple times with different input arguments.
+
+	> you might have a search functionalaty on the search center Application.
+	
+	> you have to write different input arguments.
+
+	> so based on the criteria you have to call appropriate method.
+
+	> in ths situation we can use method overloading concept.
+
+	> Search coustomer i.e.,
+
+			coustomer ID,coustomer name,coustomer Location,coustomer country e.t.c.,			
+	
+
+	>That method contains four input Arguments
+
+	> I want to know based on coustomer city who are the list of coustmersare Available.
+
+	> so I have to develop a method name with different input arguments.
+
+	> I want to find out exact coustomer then i want to write coustomer Name as well.
+
+	>So that Corresponding set of drier instruction can be executed from the method & your program
+
+	 will be executed.   
+
+
+-------------------------------------------------------------------------------------------------------	
+
+
+
+
+
+
+
+
